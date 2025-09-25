@@ -24,20 +24,27 @@ public final class TaskUtil {
 	}
 
 	public static void postServerTick() {
-		tick++;
 		final long t = tick;
-		for (int i = TICK_START_QUEUE.size(); i > 0; i--) {
-			final Task task = TICK_START_QUEUE.element();
+		for (int i = TICK_END_QUEUE.size(); i > 0; i--) {
+			final Task task = TICK_END_QUEUE.element();
 			if (task.tick() > t) {
 				return;
 			}
-			TICK_START_QUEUE.remove();
+			TICK_END_QUEUE.remove();
 			task.task().run();
 		}
 	}
 
+	public static void queueTickStart(final Runnable task) {
+		queueTickStart(0, task);
+	}
+
 	public static void queueTickStart(final int delay, final Runnable task) {
 		TICK_START_QUEUE.add(new Task(tick + delay, task));
+	}
+
+	public static void queueTickEnd(final Runnable task) {
+		queueTickEnd(0, task);
 	}
 
 	public static void queueTickEnd(final int delay, final Runnable task) {
@@ -47,7 +54,7 @@ public final class TaskUtil {
 	record Task(long tick, Runnable task) implements Comparable<Task> {
 		@Override
 		public int compareTo(final Task other) {
-			return this.tick < other.tick ? -1 : this.tick > other.tick ? 1 : 0;
+			return Long.compare(this.tick, other.tick);
 		}
 	}
 }
