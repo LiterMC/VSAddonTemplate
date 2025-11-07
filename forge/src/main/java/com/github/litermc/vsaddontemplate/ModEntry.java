@@ -25,7 +25,7 @@ public class ModEntry {
 		final FMLJavaModLoadingContext context = FMLJavaModLoadingContext.get();
 		final IEventBus modBus = context.getModEventBus();
 
-		VSAddonTemplateRegistry.register();
+		VSAddonTemplateListeners.onModInit();
 		BlockCapabilityProviders.register();
 
 		context.registerConfig(ModConfig.Type.SERVER, ((ForgeConfigFile)(ConfigSpec.serverSpec)).spec());

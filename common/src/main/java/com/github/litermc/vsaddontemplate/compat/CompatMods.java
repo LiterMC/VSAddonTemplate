@@ -7,6 +7,7 @@ public enum CompatMods {
 	JADE("jade");
 
 	private final String modId;
+	private Boolean loaded = null;
 
 	private CompatMods(final String modId) {
 		this.modId = modId;
@@ -17,6 +18,9 @@ public enum CompatMods {
 	}
 
 	public boolean isLoaded() {
-		return PlatformHelper.get().isModLoaded(this.getId());
+		if (this.loaded == null) {
+			this.loaded = PlatformHelper.get().isModLoaded(this.getId());
+		}
+		return this.loaded;
 	}
 }

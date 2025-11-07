@@ -40,6 +40,21 @@ repositories {
 
 	exclusiveContent {
 		forRepository {
+			mavenLocal()
+		}
+		forRepository {
+			maven {
+				name = 'LiterMC maven'
+				url = 'https://litermc.github.io/maven/'
+			}
+		}
+		filter {
+			includeGroupAndSubgroups('com.github.litermc')
+		}
+	}
+
+	exclusiveContent {
+		forRepository {
 			maven {
 				name = 'ParchmentMC'
 				url = 'https://maven.parchmentmc.org'

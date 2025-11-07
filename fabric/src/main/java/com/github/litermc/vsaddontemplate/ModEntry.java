@@ -17,7 +17,7 @@ public class ModEntry implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		VSAddonTemplateRegistry.register();
+		VSAddonTemplateListeners.onModInit();
 		BlockCapabilityProviders.register();
 
 		CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> VSAddonTemplateCommands.register(dispatcher));

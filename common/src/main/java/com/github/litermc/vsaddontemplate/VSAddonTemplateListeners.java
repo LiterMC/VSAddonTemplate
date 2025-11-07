@@ -8,6 +8,10 @@ import net.minecraft.server.level.ServerLevel;
 public final class VSAddonTemplateListeners {
 	private VSAddonTemplateListeners() {}
 
+	public static void onModInit() {
+		VSAddonTemplateRegistry.register();
+	}
+
 	public static void onServerLevelLoad(final ServerLevel level) {
 	}
 
