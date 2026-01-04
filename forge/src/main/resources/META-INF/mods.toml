@@ -25,13 +25,13 @@ side = "BOTH" # Side this dependency is applied on - 'BOTH', 'CLIENT' or 'SERVER
 [[dependencies.${mod_id}]]
 modId = "minecraft"
 mandatory = true
-versionRange = "[${minecraft_version},${minecraft_version}]" # Forge does not allow specific version but only range
+versionRange = "${minecraft_version}"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.${mod_id}]]
 modId = "valkyrienskies"
 mandatory = true
-versionRange = "[2.3,2.4)"
+versionRange = "[2.4,2.5)"
 ordering = "AFTER" # AFTER: your mod loads after the dependency; BEFORE: your mod loads before the dependency
 side = "BOTH"

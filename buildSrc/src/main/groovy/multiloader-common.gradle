@@ -146,6 +146,19 @@ repositories {
 			includeGroup('com.jamieswhiteshirt')
 		}
 	}
+
+	exclusiveContent {
+		forRepository {
+			maven {
+				name = 'CurseForge'
+				url = 'https://cursemaven.com'
+			}
+		}
+		filter {
+			includeGroup('curse.maven')
+		}
+	}
+
 	exclusiveContent {
 		forRepository {
 			maven {
