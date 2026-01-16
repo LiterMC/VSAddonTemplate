@@ -101,7 +101,7 @@ public final class VSAddonTemplateRegistry {
 		private static final RegistryEntry<CreativeModeTab> TAB = REGISTRY.register(
 			"tab",
 			() -> PlatformHelper.get().newCreativeModeTab()
-				.icon(() -> new ItemStack(Items.CHUNK_LOADER.get()))
+				// .icon(() -> new ItemStack(Items.CHUNK_LOADER.get()))
 				.title(Component.translatable("itemGroup." + Constants.MOD_ID))
 				.displayItems((context, out) -> {
 					Items.TAB_ITEMS.stream().map(RegistryEntry::get).forEach(out::accept);

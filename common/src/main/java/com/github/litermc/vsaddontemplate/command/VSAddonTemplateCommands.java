@@ -15,7 +15,6 @@ import net.minecraft.server.level.ServerLevel;
 import org.valkyrienskies.core.api.ships.ServerShip;
 import org.valkyrienskies.core.api.ships.Ship;
 import org.valkyrienskies.mod.common.command.ShipArgument;
-import org.valkyrienskies.mod.mixinducks.feature.command.VSCommandSource;
 
 import java.util.Set;
 
@@ -28,7 +27,7 @@ public final class VSAddonTemplateCommands {
 		// dispatcher.register(Commands.literal(ROOT_LITERAL)
 		// 	.requires((source) -> source.hasPermission(2))
 		// 	.then(Commands.literal("delete")
-		// 		.then(Commands.argument("ships", ShipArgument.Companion.ships())
+		// 		.then(Commands.argument("ships", ShipArgument.ships())
 		// 			.executes(VSAddonTemplateCommands::delete)
 		// 		)
 		// 	)
@@ -38,7 +37,7 @@ public final class VSAddonTemplateCommands {
 	// private static int delete(final CommandContext<CommandSourceStack> context) throws CommandSyntaxException {
 	// 	final CommandSourceStack source = context.getSource();
 	// 	final MinecraftServer server = source.getServer();
-	// 	final Set<Ship> ships = ShipArgument.Companion.getShips((CommandContext<VSCommandSource>)((CommandContext<?>)(context)), "ships");
+	// 	final Set<Ship> ships = ShipArgument.getShips(context, "ships");
 	// 	int successCount = 0;
 	// 	for (final Ship ship : ships) {
 	// 		if (!(ship instanceof ServerShip serverShip)) {
