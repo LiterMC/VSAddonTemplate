@@ -10,7 +10,6 @@ import com.github.litermc.vsaddontemplate.network.MessageType;
 import com.github.litermc.vsaddontemplate.network.NetworkMessage;
 import com.github.litermc.vsaddontemplate.network.client.ClientNetworkContext;
 import com.github.litermc.vsaddontemplate.network.container.ContainerData;
-import com.github.litermc.vsaddontemplate.util.TaskUtil;
 
 import com.google.auto.service.AutoService;
 import com.google.gson.JsonArray;

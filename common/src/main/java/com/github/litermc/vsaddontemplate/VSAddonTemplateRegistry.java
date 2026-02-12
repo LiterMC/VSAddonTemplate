@@ -29,6 +29,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.BiConsumer;
 import java.util.function.BiFunction;
+import java.util.function.Supplier;
 
 public final class VSAddonTemplateRegistry {
 	private VSAddonTemplateRegistry() {}
@@ -82,7 +83,11 @@ public final class VSAddonTemplateRegistry {
 		}
 
 		private static <B extends Block, I extends Item> RegistryEntry<I> ofBlock(RegistryEntry<B> block, BiFunction<B, Item.Properties, I> supplier) {
-			final RegistryEntry<I> entry = REGISTRY.register(block.id().getPath(), () -> supplier.apply(block.get(), properties()));
+			return register(block.id().getPath(), () -> supplier.apply(block.get(), properties()));
+		}
+
+		private static <I extends Item> RegistryEntry<I> register(final String id, final Supplier<I> supplier) {
+			final RegistryEntry<I> entry = REGISTRY.register(id, supplier);
 			TAB_ITEMS.add(entry);
 			return entry;
 		}
